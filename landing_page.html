@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaxCanvas Accounting Firm</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #fff;
+      }
+      header {
+        position: fixed;
+        width: 95%;
+        top: 0;
+        background: #1a1a1a;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+      header h1 {
+        margin: 0;
+        color: #c4a34a;
+      }
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+      }
+      nav a:hover {
+        color: #c4a34a;
+      }
+
+      section {
+        padding: 120px 60px;
+      }
+      #home {
+        background: url("https://plus.unsplash.com/premium_photo-1661456036273-ba04fd18c17e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+          center/cover no-repeat;
+        height:60vh;
+        display: flex;
+        align-items: center;
+      }
+      #home h2 {
+        color: #c4a34a;
+        font-size: 48px;
+        max-width: 600px;
+      }
+
+      #about,
+      #services,
+      #gallery,
+      #contact {
+        background: #1a1a1a;
+        margin-top: 20px;
+        border-top: 3px solid #c4a34a;
+      }
+
+      h2.section-title {
+        color: #c4a34a;
+        margin-bottom: 20px;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .service-box {
+        border: 1px solid #444;
+        padding: 20px;
+        border-radius: 8px;
+        background: #222;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+      }
+      .gallery-grid img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: none;
+      }
+      form button {
+        padding: 12px 30px;
+        background: #c4a34a;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      form button:hover {
+        background: #a88c3e;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="/images/logo-image.png"
+        alt="TaxCanvas Logo"
+        style="width: 10%; height: 50%"
+      />
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </header>
+
+    <section id="home">
+      <h2>Your Trusted Partner in Accounting, Tax & Business Growth</h2>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-box">Office Account Handling (Bookkeeping)</div>
+        <div class="service-box">Tally, PAN, and TAN Services</div>
+        <div class="service-box">GST Registration</div>
+        <div class="service-box">IEC Code (Import & Export License)</div>
+        <div class="service-box">Trademark & Patent Registration</div>
+        <div class="service-box">Startup Registration</div>
+        <div class="service-box">Income Tax Return Filing</div>
+        <div class="service-box">Company Tax Audit</div>
+        <div class="service-box">GST Filing</div>
+        <div class="service-box">Shop & Establishment Licenses</div>
+        <div class="service-box">Trust Registration</div>
+        <div class="service-box">MSME (Udyam Registration)</div>
+        <div class="service-box">TDS & TCS Filing</div>
+        <div class="service-box">Notices & Tax Disputes</div>
+        <div class="service-box">Capital Gain ITR Filing</div>
+        <div class="service-box">Individual Tax Audit</div>
+        <div class="service-box">Statutory Tax Audit</div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 50px">Our Core Services</h2>
+      <div class="services-grid">
+        <div class="service-box">
+          <h3>1. Accounting & Bookkeeping</h3>
+          <p>
+            Monthly/Quarterly/Annual bookkeeping<br />Financial reporting<br />Accounts
+            receivable/payable management<br />Payroll services
+          </p>
+        </div>
+        <div class="service-box">
+          <h3>2. Tax Services</h3>
+          <p>
+            Individual & corporate tax filing<br />GST/VAT registration &
+            filing<br />Tax planning & advisory<br />Audit support & tax
+            compliance
+          </p>
+        </div>
+        <div class="service-box">
+          <h3>3. Business Advisory</h3>
+          <p>
+            Business incorporation<br />Compliance management<br />Budgeting &
+            forecasting<br />CFO services for startups & SMEs
+          </p>
+        </div>
+        <div class="service-box">
+          <h3>4. Audit & Assurance</h3>
+          <p>
+            Internal & statutory audits<br />Financial risk assessment<br />Compliance
+            audits
+          </p>
+        </div>
+        <div class="service-box">
+          <h3>5. Digital Accounting Solutions</h3>
+          <p>
+            Cloud accounting setup<br />QuickBooks/Tally/Zoho onboarding<br />Workflow
+            automation<br />Digital record management
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <div>
+          <img src="https://plus.unsplash.com/premium_photo-1679923906285-386991e8d862?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 1" />
+          <h3>Work Image 1</h3>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1709880945165-d2208c6ad2ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 2" />
+          <h3>Work Image 2</h3>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1598432439250-0330f9130e14?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 3" />
+          <h3>Work Image 3</h3>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h2 class="section-title">About Us</h2>
+      <div
+        style="
+          display: flex;
+          gap: 40px;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        "
+      >
+        <img
+          src="images/logo-image.png"
+          alt="About Image"
+          style="width: 350px; border-radius: 10px"
+        />
+        <div>
+          <p>
+            At TaxCanvas Accounting Firm, we bring clarity, precision, and
+            strategic insight to your financial world.
+          </p>
+          <p>
+            Our mission is simple: to simplify finances and maximize value for
+            individuals, startups, and established businesses.
+          </p>
+          <p>
+            With a team of certified accountants and tax professionals, we
+            combine technology with expertise to deliver seamless accounting
+            solutions.
+          </p>
+
+          <h3>Address</h3>
+          <p>
+            TaxCanvas Accounting Firm<br />HBR Layout<br />Banglore-560043<br />info@taxcanvasaccounting.com<br />+91
+            7204469449
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <script>
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .querySelector(link.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
