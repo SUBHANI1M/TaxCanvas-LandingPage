@@ -1,270 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TaxCanvas Accounting Firm</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #111;
-        color: #fff;
-      }
-      header {
-        position: fixed;
-        width: 95%;
-        top: 0;
-        background: #1a1a1a;
-        padding: 15px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 100;
-      }
-      header h1 {
-        margin: 0;
-        color: #c4a34a;
-      }
-      nav a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: #fff;
-        font-weight: bold;
-      }
-      nav a:hover {
-        color: #c4a34a;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaxCanvas Accounting Firm</title>
 
-      section {
-        padding: 120px 60px;
-      }
-      #home {
-        background: url("https://plus.unsplash.com/premium_photo-1661456036273-ba04fd18c17e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-          center/cover no-repeat;
-        height:60vh;
-        display: flex;
-        align-items: center;
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+/* LOGO */
+.logo {
+  width: 130px;
+}
+
+/* DESKTOP NAV */
+.desktop-nav {
+  display: flex;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #c4a34a;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #111;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.4s ease;
+  z-index: 2000;
+  border-left: 2px solid #c4a34a;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.close-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: #c4a34a;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+  header {
+    padding: 15px 20px;
+  }
+}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    /* HEADER */
+    header {
+      top: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(20,20,20,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+
+    /* NAVIGATION */
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      transition: .3s;
+    }
+    nav a:hover {
+      color: #c4a34a;
+    }
+
+    /* MOBILE NAV (HIDDEN FOR NOW, CAN ADD BURGER MENU LATER) */
+
+    /* SECTION DEFAULT */
+    section {
+      padding: 120px 60px;
+    }
+
+    /* HOME SECTION */
+    #home {
+      height: 75vh;
+      background: url("https://plus.unsplash.com/premium_photo-1661456036273-ba04fd18c17e?q=80&w=880&auto=format&fit=crop") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding-top: 150px;
+    }
+    #home h2 {
+      font-size: 48px;
+      max-width: 650px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0px 0px 12px rgba(0,0,0,.8);
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-size: 34px;
+      font-weight: 600;
+      color: #c4a34a;
+      margin-bottom: 25px;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .service-box {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .service-box:hover {
+      transform: translateY(-8px);
+      border-color: #c4a34a;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+    }
+
+    /* ACCORDION */
+    .accordion {
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
+      background:#222;
+  padding: 20px;
+  border: 1px solid #333;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #c4a34a;
+  transition: .3s;
+    }
+
+    .accordion:hover {
+      border-color: #c4a34a;
+    }
+
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+      background: #151515;
+      padding: 0 15px;
+      border-left: 2px solid #c4a34a;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    .panel p {
+      margin: 14px 0;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.06);
+    }
+
+    /* CONTACT FORM */
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    form textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    form button {
+      padding: 12px 28px;
+      background: #c4a34a;
+      color: #000;
+      border: none;
+      font-size: 18px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    form button:hover {
+      background: #a88c3e;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0c0c0c;
+      padding: 50px 60px;
+      border-top: 2px solid #c4a34a;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: #c4a34a;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      color: #c4a34a;
+      margin: 6px 0;
+      display: block;
+      font-size: 15px;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    .social-icons img {
+      width: 32px;
+      margin-right: 10px;
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* RESPONSIVENESS */
+    @media (max-width: 900px) {
+      header {
+        padding: 15px 25px;
       }
       #home h2 {
-        color: #c4a34a;
-        font-size: 48px;
-        max-width: 600px;
+        font-size: 38px;
+        
+       color: #c4a34a;
+      
       }
+    }
 
-      #about,
-      #services,
-      #gallery,
-      #contact {
-        background: #1a1a1a;
-        margin-top: 20px;
-        border-top: 3px solid #c4a34a;
+    @media (max-width: 768px) {
+      section {
+        padding: 100px 25px;
       }
+      #home h2 {
+        font-size: 30px;
+      }
+      nav a {
+        margin-left: 15px;
+        font-size: 15px;
+      }
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
 
-      h2.section-title {
-        color: #c4a34a;
-        margin-bottom: 20px;
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
       }
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+      #home {
+        height: 60vh;
       }
-      .service-box {
-        border: 1px solid #444;
-        padding: 20px;
-        border-radius: 8px;
-        background: #222;
+      #home h2 {
+        font-size: 26px;
       }
+      nav a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
 
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 15px;
-      }
-      .gallery-grid img {
-        width: 100%;
-        border-radius: 8px;
-      }
+<body>
 
-      form input,
-      form textarea {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: none;
-      }
-      form button {
-        padding: 12px 30px;
-        background: #c4a34a;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      form button:hover {
-        background: #a88c3e;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img
-        src="/images/logo-image.png"
-        alt="TaxCanvas Logo"
-        style="width: 10%; height: 50%"
-      />
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
-      </nav>
-    </header>
+<header>
+  <img src="/images/logo-image.png" alt="TaxCanvas Logo" class="logo" />
 
-    <section id="home">
-      <h2>Your Trusted Partner in Accounting, Tax & Business Growth</h2>
-    </section>
+  <!-- Desktop Navigation -->
+  <nav class="desktop-nav">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <section id="services">
-      <h2 class="section-title">Our Services</h2>
-      <div class="services-grid">
-        <div class="service-box">Office Account Handling (Bookkeeping)</div>
-        <div class="service-box">Tally, PAN, and TAN Services</div>
-        <div class="service-box">GST Registration</div>
-        <div class="service-box">IEC Code (Import & Export License)</div>
-        <div class="service-box">Trademark & Patent Registration</div>
-        <div class="service-box">Startup Registration</div>
-        <div class="service-box">Income Tax Return Filing</div>
-        <div class="service-box">Company Tax Audit</div>
-        <div class="service-box">GST Filing</div>
-        <div class="service-box">Shop & Establishment Licenses</div>
-        <div class="service-box">Trust Registration</div>
-        <div class="service-box">MSME (Udyam Registration)</div>
-        <div class="service-box">TDS & TCS Filing</div>
-        <div class="service-box">Notices & Tax Disputes</div>
-        <div class="service-box">Capital Gain ITR Filing</div>
-        <div class="service-box">Individual Tax Audit</div>
-        <div class="service-box">Statutory Tax Audit</div>
+  <!-- Hamburger Icon -->
+  <div class="menu-icon" id="menuOpen">☰</div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="close-icon" id="menuClose">✕</div>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<section id="home">
+  <h2>Smart, Modern & Reliable Accounting Solutions for Your Business Growth.</h2>
+</section>
+
+<section id="services">
+
+  <h2 class="section-title">Our Services</h2>
+
+  <div class="services-grid">
+    <div class="service-box">Bookkeeping & Office Accounts</div>
+    <div class="service-box">Tally, PAN & TAN Services</div>
+    <div class="service-box">GST Registration & Filing</div>
+    <div class="service-box">Import/Export (IEC) License</div>
+    <div class="service-box">Trademark & Patent Registration</div>
+    <div class="service-box">Startup Registration</div>
+    <div class="service-box">Income Tax Filing</div>
+    <div class="service-box">Company Tax Audit</div>
+    <div class="service-box">Shop & Establishment License</div>
+    <div class="service-box">MSME (Udyam) Registration</div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:40px;">Our Core Services</h2>
+
+  <button class="accordion">1. Accounting & Bookkeeping</button>
+  <div class="panel"><p>Financial statements, monthly bookkeeping, payroll, receivable/payable tracking & full accounting support.</p></div>
+
+  <button class="accordion">2. Tax Services</button>
+  <div class="panel"><p>GST filing, Individual/Corporate ITR, tax planning, audit assistance & dispute handling.</p></div>
+
+  <button class="accordion">3. Business Advisory</button>
+  <div class="panel"><p>Business registration, budgeting, forecasting, compliance handling & CFO services for SMEs.</p></div>
+
+  <button class="accordion">4. Audit & Assurance</button>
+  <div class="panel"><p>Internal audits, financial risk review, statutory auditing & compliance audits.</p></div>
+
+  <button class="accordion">5. Digital Accounting Solutions</button>
+  <div class="panel"><p>Cloud accounting setup (Tally/Zoho/QuickBooks), automation & digital workflow implementation.</p></div>
+
+</section>
+
+<section id="gallery">
+  <h2 class="section-title">Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1709880945165-d2208c6ad2ec" />
+    <img src="https://images.unsplash.com/photo-1598432439250-0330f9130e14" />
+    <img src="https://plus.unsplash.com/premium_photo-1679923906285-386991e8d862" />
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <p style="max-width:850px; line-height:1.7;">
+    At TaxCanvas Accounting Firm, we blend technology with professional expertise to provide 
+    accurate, transparent, and reliable financial services. Our team includes certified accountants, 
+    tax consultants, and audit experts dedicated to helping individuals, startups, and established 
+    businesses manage their financial responsibilities with ease.  
+    <br><br>
+    We believe in simplifying finance so you can focus on growth.
+  </p>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Email Address" required />
+    <textarea placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h3>TaxCanvas Accounting Firm</h3>
+      <p>HBR Layout, Bangalore-560043</p>
+      <p>Email: info@taxcanvasaccounting.com</p>
+      <p>Phone: +91 7204469449</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div>
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" />
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" />
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" />
       </div>
+    </div>
 
-      <h2 class="section-title" style="margin-top: 50px">Our Core Services</h2>
-      <div class="services-grid">
-        <div class="service-box">
-          <h3>1. Accounting & Bookkeeping</h3>
-          <p>
-            Monthly/Quarterly/Annual bookkeeping<br />Financial reporting<br />Accounts
-            receivable/payable management<br />Payroll services
-          </p>
-        </div>
-        <div class="service-box">
-          <h3>2. Tax Services</h3>
-          <p>
-            Individual & corporate tax filing<br />GST/VAT registration &
-            filing<br />Tax planning & advisory<br />Audit support & tax
-            compliance
-          </p>
-        </div>
-        <div class="service-box">
-          <h3>3. Business Advisory</h3>
-          <p>
-            Business incorporation<br />Compliance management<br />Budgeting &
-            forecasting<br />CFO services for startups & SMEs
-          </p>
-        </div>
-        <div class="service-box">
-          <h3>4. Audit & Assurance</h3>
-          <p>
-            Internal & statutory audits<br />Financial risk assessment<br />Compliance
-            audits
-          </p>
-        </div>
-        <div class="service-box">
-          <h3>5. Digital Accounting Solutions</h3>
-          <p>
-            Cloud accounting setup<br />QuickBooks/Tally/Zoho onboarding<br />Workflow
-            automation<br />Digital record management
-          </p>
-        </div>
-      </div>
-    </section>
+  </div>
+</footer>
 
-    <section id="gallery">
-      <h2 class="section-title">Gallery</h2>
-      <div class="gallery-grid">
-        <div>
-          <img src="https://plus.unsplash.com/premium_photo-1679923906285-386991e8d862?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 1" />
-          <h3>Work Image 1</h3>
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1709880945165-d2208c6ad2ec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 2" />
-          <h3>Work Image 2</h3>
-        </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1598432439250-0330f9130e14?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Work Image 3" />
-          <h3>Work Image 3</h3>
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <h2 class="section-title">About Us</h2>
-      <div
-        style="
-          display: flex;
-          gap: 40px;
-          align-items: flex-start;
-          flex-wrap: wrap;
-        "
-      >
-        <img
-          src="images/logo-image.png"
-          alt="About Image"
-          style="width: 350px; border-radius: 10px"
-        />
-        <div>
-          <p>
-            At TaxCanvas Accounting Firm, we bring clarity, precision, and
-            strategic insight to your financial world.
-          </p>
-          <p>
-            Our mission is simple: to simplify finances and maximize value for
-            individuals, startups, and established businesses.
-          </p>
-          <p>
-            With a team of certified accountants and tax professionals, we
-            combine technology with expertise to deliver seamless accounting
-            solutions.
-          </p>
+<script>
+  // MOBILE MENU TOGGLE
+const menuOpen = document.getElementById("menuOpen");
+const menuClose = document.getElementById("menuClose");
+const mobileMenu = document.getElementById("mobileMenu");
 
-          <h3>Address</h3>
-          <p>
-            TaxCanvas Accounting Firm<br />HBR Layout<br />Banglore-560043<br />info@taxcanvasaccounting.com<br />+91
-            7204469449
-          </p>
-        </div>
-      </div>
-    </section>
+menuOpen.addEventListener("click", () => {
+  mobileMenu.style.right = "0";
+});
 
-    <section id="contact">
-      <h2 class="section-title">Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+menuClose.addEventListener("click", () => {
+  mobileMenu.style.right = "-100%";
+});
 
-    <script>
-      document.querySelectorAll("nav a").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          document
-            .querySelector(link.getAttribute("href"))
-            .scrollIntoView({ behavior: "smooth" });
-        });
+// Close menu when clicking any link
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.style.right = "-100%";
+  });
+});
+
+  const accordions = document.querySelectorAll('.accordion');
+  
+  accordions.forEach((acc) => {
+    acc.addEventListener('click', function () {
+      const panel = this.nextElementSibling;
+
+      accordions.forEach(a => {
+        if (a !== this) {
+          a.nextElementSibling.style.maxHeight = null;
+        }
       });
-    </script>
-  </body>
+
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+    });
+  });
+</script>
+
+</body>
 </html>
